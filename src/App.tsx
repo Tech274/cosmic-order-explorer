@@ -7,6 +7,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Onboarding from "./pages/Onboarding";
 import Dashboard from "./pages/Dashboard";
+import Readings from "./pages/Readings";
+import Journal from "./pages/Journal";
+import BirthChart from "./pages/BirthChart";
+import CosmicCalendar from "./pages/Calendar";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -36,6 +40,10 @@ const App = () => (
           <Route path="/"           element={<Index />} />
           <Route path="/onboarding" element={<Onboarding />} />
           <Route path="/dashboard"  element={<Dashboard />} />
+          <Route path="/readings"   element={<Readings />} />
+          <Route path="/journal"    element={<Journal />} />
+          <Route path="/chart"      element={<BirthChart />} />
+          <Route path="/calendar"   element={<CosmicCalendar />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*"           element={<NotFound />} />
         </Routes>

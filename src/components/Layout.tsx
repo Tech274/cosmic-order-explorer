@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Separator } from "@/components/ui/separator";
-import { Moon, Sun, Star, Menu, Sparkles, BookOpen, LayoutDashboard, Calendar } from "lucide-react";
+import { Moon, Sun, Star, Menu, Sparkles, BookOpen, LayoutDashboard, Calendar, ShoppingBag, Users, CreditCard } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface LayoutProps {
@@ -37,7 +37,7 @@ function ThemeToggle() {
 const landingLinks = [
   { label: "Features",    href: "#features" },
   { label: "How It Works", href: "#how-it-works" },
-  { label: "Pricing",     href: "#pricing" },
+  { label: "Pricing",     href: "/pricing" },
 ];
 
 const appLinks = [
@@ -45,6 +45,9 @@ const appLinks = [
   { label: "Readings",   href: "/readings",   icon: Sparkles },
   { label: "Journal",    href: "/journal",    icon: BookOpen },
   { label: "Calendar",   href: "/calendar",   icon: Calendar },
+  { label: "Sessions",   href: "/sessions",   icon: Users },
+  { label: "Shop",       href: "/shop",       icon: ShoppingBag },
+  { label: "Billing",    href: "/billing",    icon: CreditCard },
 ];
 
 export default function Layout({ children, variant = "landing" }: LayoutProps) {
@@ -91,11 +94,17 @@ export default function Layout({ children, variant = "landing" }: LayoutProps) {
                 </Link>
               ))
             ) : (
-              landingLinks.map(({ label, href }) => (
-                <a key={href} href={href}>
-                  <Button variant="ghost" size="sm">{label}</Button>
-                </a>
-              ))
+              landingLinks.map(({ label, href }) =>
+                href.startsWith("/") ? (
+                  <Link key={href} to={href}>
+                    <Button variant="ghost" size="sm">{label}</Button>
+                  </Link>
+                ) : (
+                  <a key={href} href={href}>
+                    <Button variant="ghost" size="sm">{label}</Button>
+                  </a>
+                )
+              )
             )}
           </nav>
 
@@ -151,11 +160,17 @@ export default function Layout({ children, variant = "landing" }: LayoutProps) {
                             </Button>
                           </Link>
                         ))
-                      : landingLinks.map(({ label, href }) => (
-                          <a key={href} href={href}>
-                            <Button variant="ghost" className="w-full justify-start">{label}</Button>
-                          </a>
-                        ))}
+                      : landingLinks.map(({ label, href }) =>
+                          href.startsWith("/") ? (
+                            <Link key={href} to={href}>
+                              <Button variant="ghost" className="w-full justify-start">{label}</Button>
+                            </Link>
+                          ) : (
+                            <a key={href} href={href}>
+                              <Button variant="ghost" className="w-full justify-start">{label}</Button>
+                            </a>
+                          )
+                        )}
                   </nav>
                   <Separator />
                   {!isApp && (

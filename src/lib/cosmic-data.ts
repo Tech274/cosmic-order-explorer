@@ -570,3 +570,228 @@ export const mockChartAspects: ChartAspect[] = [
     description: "A lifelong conversation between your creative self-expression and the demands of responsibility. When reconciled, this aspect produces exceptional discipline married to authentic purpose.",
   },
 ];
+
+// ── Digital Products (Shop) ───────────────────────────────────
+export interface DigitalProduct {
+  id: string;
+  name: string;
+  emoji: string;
+  category: "ebook" | "audio" | "course" | "ritual" | "planner";
+  price: number;
+  originalPrice?: number;
+  description: string;
+  features: string[];
+  rating: number;
+  reviews: number;
+  badge?: string;
+}
+
+export const digitalProducts: DigitalProduct[] = [
+  {
+    id: "dp-1",
+    name: "Cosmic Ordering Mastery Guide",
+    emoji: "📖",
+    category: "ebook",
+    price: 19.99,
+    originalPrice: 29.99,
+    description: "The definitive 120-page guide to manifesting with cosmic precision. Learn the art of aligning your desires with planetary cycles for accelerated results.",
+    features: ["120-page deep-dive", "12 cosmic ordering templates", "Moon ritual calendar", "Personal workbook pages"],
+    rating: 4.9,
+    reviews: 847,
+    badge: "Bestseller",
+  },
+  {
+    id: "dp-2",
+    name: "Full Moon Release Meditation Series",
+    emoji: "🎧",
+    category: "audio",
+    price: 14.99,
+    description: "Six guided meditations (45–60 minutes each) designed to harness the releasing power of each full moon archetype throughout the year.",
+    features: ["6 full-length meditations", "Binaural beat background", "Downloadable MP3", "Companion ritual guide"],
+    rating: 4.8,
+    reviews: 512,
+    badge: "New",
+  },
+  {
+    id: "dp-3",
+    name: "Astrology Foundations: Self-Paced Course",
+    emoji: "🎓",
+    category: "course",
+    price: 79.00,
+    originalPrice: 129.00,
+    description: "Go from curious beginner to confident birth-chart reader in 8 weeks. 24 video lessons, quizzes, and a live Q&A session included.",
+    features: ["24 video lessons", "Live monthly Q&A", "Certificate of completion", "Lifetime access"],
+    rating: 4.9,
+    reviews: 1203,
+    badge: "Top Rated",
+  },
+  {
+    id: "dp-4",
+    name: "New Moon Manifestation Ritual Kit",
+    emoji: "✨",
+    category: "ritual",
+    price: 12.99,
+    description: "Everything you need to perform a powerful new moon ritual. Includes step-by-step ceremony, affirmation cards, and a 28-day tracking journal.",
+    features: ["Step-by-step ceremony", "28 affirmation cards", "28-day tracker", "Moon water instructions"],
+    rating: 4.7,
+    reviews: 389,
+  },
+  {
+    id: "dp-5",
+    name: "2026 Cosmic Planner PDF",
+    emoji: "📅",
+    category: "planner",
+    price: 9.99,
+    description: "A beautifully illustrated 52-week digital planner aligned to every major cosmic event of 2026 — lunar cycles, eclipses, retrogrades, and solstices.",
+    features: ["52-week layout", "Moon phase tracker", "Eclipse planning pages", "Printable A4 & Letter"],
+    rating: 4.8,
+    reviews: 641,
+  },
+  {
+    id: "dp-6",
+    name: "Shadow Work Cosmic Journal Prompts",
+    emoji: "🌑",
+    category: "ebook",
+    price: 7.99,
+    description: "365 deep journal prompts specifically designed for shadow work, aligned to the lunar calendar. One transformative prompt for every day of the year.",
+    features: ["365 unique prompts", "Moon-phase aligned", "Shadow work framework", "Integration exercises"],
+    rating: 4.6,
+    reviews: 276,
+  },
+];
+
+// ── Credit Packs ──────────────────────────────────────────────
+export interface CreditPack {
+  id: string;
+  credits: number;
+  price: number;
+  originalPrice?: number;
+  perCredit: number;
+  badge?: string;
+  highlighted: boolean;
+}
+
+export const creditPacks: CreditPack[] = [
+  { id: "cp-5",  credits: 5,  price: 4.99,  perCredit: 1.00, highlighted: false },
+  { id: "cp-20", credits: 20, price: 14.99, perCredit: 0.75, badge: "Best Value", highlighted: true },
+  { id: "cp-50", credits: 50, price: 29.99, originalPrice: 49.99, perCredit: 0.60, badge: "Power Pack", highlighted: false },
+];
+
+// ── Practitioners ─────────────────────────────────────────────
+export interface Practitioner {
+  id: string;
+  name: string;
+  avatar: string;
+  title: string;
+  specialties: string[];
+  rating: number;
+  reviews: number;
+  sessionsCompleted: number;
+  pricePerHour: number;
+  nextAvailable: string;
+  languages: string[];
+  bio: string;
+  badges: string[];
+}
+
+export const practitioners: Practitioner[] = [
+  {
+    id: "p-1",
+    name: "Celestine Mora",
+    avatar: "CM",
+    title: "Vedic Astrologer & Life Coach",
+    specialties: ["Vedic Astrology", "Career Guidance", "Relationship Synastry", "Spiritual Awakening"],
+    rating: 4.97,
+    reviews: 312,
+    sessionsCompleted: 890,
+    pricePerHour: 120,
+    nextAvailable: "Today, 4:00 PM",
+    languages: ["English", "Spanish"],
+    bio: "With 14 years of Vedic astrology practice and a Masters in Psychology, Celestine weaves ancient wisdom with modern coaching to help you navigate life's pivotal crossroads.",
+    badges: ["Top Rated", "Verified", "Fast Responder"],
+  },
+  {
+    id: "p-2",
+    name: "Orion Blake",
+    avatar: "OB",
+    title: "Western Astrologer & Tarot Reader",
+    specialties: ["Western Astrology", "Tarot", "Love & Relationships", "Shadow Work"],
+    rating: 4.92,
+    reviews: 218,
+    sessionsCompleted: 547,
+    pricePerHour: 85,
+    nextAvailable: "Tomorrow, 10:00 AM",
+    languages: ["English"],
+    bio: "Orion combines 10 years of Western astrology with an intuitive tarot practice to deliver sessions that are both deeply insightful and immediately actionable.",
+    badges: ["Certified", "Rising Star"],
+  },
+  {
+    id: "p-3",
+    name: "Ananya Krishnan",
+    avatar: "AK",
+    title: "Numerologist & Cosmic Coach",
+    specialties: ["Numerology", "Life Path Reading", "Abundance Mindset", "Purpose Work"],
+    rating: 4.89,
+    reviews: 178,
+    sessionsCompleted: 423,
+    pricePerHour: 75,
+    nextAvailable: "Today, 7:00 PM",
+    languages: ["English", "Hindi", "Tamil"],
+    bio: "Ananya's unique fusion of numerology and cosmic coaching creates a precise map of your soul's purpose and the practical steps to walk your most authentic path.",
+    badges: ["Multilingual", "Verified"],
+  },
+  {
+    id: "p-4",
+    name: "Sebastian Wolf",
+    avatar: "SW",
+    title: "Human Design Analyst",
+    specialties: ["Human Design", "Gene Keys", "Energy Management", "Manifestation"],
+    rating: 4.94,
+    reviews: 267,
+    sessionsCompleted: 711,
+    pricePerHour: 110,
+    nextAvailable: "Mar 5, 2:00 PM",
+    languages: ["English", "German"],
+    bio: "Sebastian is one of the leading Human Design analysts in Europe, helping executives, creatives, and seekers understand their unique energetic blueprint and how to work with — not against — their design.",
+    badges: ["Top Rated", "Verified", "Expert"],
+  },
+];
+
+// ── Subscription / Billing (mock) ─────────────────────────────
+export interface Invoice {
+  id: string;
+  date: string;
+  description: string;
+  amount: number;
+  status: "paid" | "pending" | "failed";
+}
+
+export interface BillingInfo {
+  plan: "free" | "pro" | "premium";
+  planName: string;
+  nextBillingDate: string;
+  amount: number;
+  creditsRemaining: number;
+  creditsTotal: number;
+  renewalCredits: number;
+  cardLast4: string;
+  cardBrand: string;
+  invoices: Invoice[];
+}
+
+export const mockBillingInfo: BillingInfo = {
+  plan: "free",
+  planName: "Stardust",
+  nextBillingDate: "—",
+  amount: 0,
+  creditsRemaining: 3,
+  creditsTotal: 3,
+  renewalCredits: 3,
+  cardLast4: "",
+  cardBrand: "",
+  invoices: [
+    { id: "inv-001", date: "2026-02-01", description: "20 Credit Pack", amount: 14.99, status: "paid" },
+    { id: "inv-002", date: "2026-01-15", description: "20 Credit Pack", amount: 14.99, status: "paid" },
+    { id: "inv-003", date: "2026-01-01", description: "5 Credit Pack", amount: 4.99, status: "paid" },
+  ],
+};
